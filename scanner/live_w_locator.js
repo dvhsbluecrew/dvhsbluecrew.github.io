@@ -288,7 +288,8 @@ $(function() {
             App.lastResult = code;
 
             document.getElementById("search").value = code;
-            document.getElementById("searchid").submit();
+            formsubmit();
+            //document.getElementById("searchID").submit();
 
             // var $node = null;
 

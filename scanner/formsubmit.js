@@ -1,17 +1,11 @@
 $(function() { //shorthand document.ready function
-    $('#searchid').on('submit', function(e) { //use on if jQuery 1.7+
+    $('#searchID').on('submit', function(e) { //use on if jQuery 1.7+
         e.preventDefault();  //prevent form from submitting
         formsubmit()
         console.log(data); //use the console for debugging, F12 in Chrome, not alerts
     });
 });
 
-
-/*$("#searchid").submit(function () {
-	formsubmit()
- 	return false;
-});
-*/
 function formsubmit() {
 	//Get values from form
 	var idnumber = document.getElementById('search').value;
@@ -23,16 +17,15 @@ function formsubmit() {
 	  "async": true,
 	  "crossDomain": true,
 	  "url": urlstring,
-	  "method": "GET",
-	  "headers": {
-	    "cache-control": "no-cache"
-	  }
+	  "method": "GET"
 	}
 
 	$.ajax(settings).done(function (response) {
 	  console.log(response);
 	  var results = JSON.parse(response);
 	});
+
+	$("#myModal").modal();
 
 	return false;
 }
