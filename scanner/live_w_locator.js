@@ -1,4 +1,5 @@
 $(function() {
+
     var resultCollector = Quagga.ResultCollector.create({
         capture: true,
         capacity: 20,
@@ -231,8 +232,8 @@ $(function() {
             inputStream: {
                 type : "LiveStream",
                 constraints: {
-                    width: {min: 640},
-                    height: {min: 480},
+                    width: {min: 1280},
+                    height: {min: 720},
                     facingMode: "environment",
                     aspectRatio: {min: 1, max: 2}
                 }
@@ -245,7 +246,7 @@ $(function() {
             frequency: 10,
             decoder: {
                 readers : [{
-                    format: "code_128_reader",
+                    format: "code_39_reader",
                     config: {}
                 }]
             },
@@ -285,12 +286,15 @@ $(function() {
 
         if (App.lastResult !== code) {
             App.lastResult = code;
-            var $node = null, canvas = Quagga.canvas.dom.image;
 
-            $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
-            $node.find("img").attr("src", canvas.toDataURL());
-            $node.find("h4.code").html(code);
-            $("#result_strip ul.thumbnails").prepend($node);
+            document.getElementById("search").value = code;
+            document.getElementById("searchid").submit();
+            // var $node = null, canvas = Quagga.canvas.dom.image;
+
+            // $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
+            // $node.find("img").attr("src", canvas.toDataURL());
+            // $node.find("h4.code").html(code);
+            // $("#result_strip ul.thumbnails").prepend($node);
         }
     });
 
