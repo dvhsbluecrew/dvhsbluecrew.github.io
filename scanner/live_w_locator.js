@@ -289,6 +289,13 @@ $(function() {
 
             document.getElementById("search").value = code;
             document.getElementById("searchid").submit();
+
+            // var $node = null;
+
+            // $node = $('<a class="dropdown-item" href="javascirpt:void(0)"></a>');
+            // $node.find("a.dropdown-item").html(code);
+            // $("#result-dropdown").prepend($node);
+
             // var $node = null, canvas = Quagga.canvas.dom.image;
 
             // $node = $('<li><div class="thumbnail"><div class="imgWrapper"><img /></div><div class="caption"><h4 class="code"></h4></div></div></li>');
