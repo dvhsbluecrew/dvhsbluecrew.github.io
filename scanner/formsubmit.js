@@ -2,7 +2,6 @@ $(function() { //shorthand document.ready function
     $('#searchID').on('submit', function(e) { //use on if jQuery 1.7+
         e.preventDefault();  //prevent form from submitting
         formsubmit()
-        console.log(data); //use the console for debugging, F12 in Chrome, not alerts
     });
 });
 
@@ -28,8 +27,11 @@ function formsubmit() {
 	  if(response.error == 0) {
 	  	valid.innerHTML = '<div class="d-inline bg-success">Success! You checked the student in at ' + response.checkintime + '.</div>';
 
-	  	if(response.drinkpass > 0) {
-	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink pass(es).';
+	  	if(response.drinkpass = 1) {
+	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink pass.';
+	  	}
+	  	else if(response.drinkpass > 1) {
+	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink passes.';
 	  	}
 	  	if(response.guestpass > 0) {
 	  		guestpass.innerHTML = 'Student has a guest: ' + response.guestname + '. Please verify the guest\'s ID.';
@@ -38,8 +40,11 @@ function formsubmit() {
 	  else if(response.error == 2) {
 	  	valid.innerHTML = '<div class="d-inline bg-warning">This student was already checked in by ' + response.checkinstaff + ' at ' + response.checkintime + '.</div>';
 
-	  	if(response.drinkpass > 0) {
-	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink pass(es).';
+	  	if(response.drinkpass = 1) {
+	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink pass.';
+	  	}
+	  	else if(response.drinkpass > 1) {
+	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink passes.';
 	  	}
 	  	if(response.guestpass > 0) {
 	  		guestpass.innerHTML = 'Student has a guest: ' + response.guestname + '. Please verify the guest\'s ID.';
