@@ -1,7 +1,7 @@
 $(function() { //shorthand document.ready function
     $('#searchID').on('submit', function(e) { //use on if jQuery 1.7+
         e.preventDefault();  //prevent form from submitting
-        formsubmit()
+        formsubmit();
     });
 });
 
