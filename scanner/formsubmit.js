@@ -1,3 +1,19 @@
+//Get parameters from URL
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+var token = getParameterByName('token');
+var tokenfield = document.getElementById('token');
+tokenfield.value = token;
+
+//Form submit
 $(function() { //shorthand document.ready function
     $('#searchID').on('submit', function(e) { //use on if jQuery 1.7+
         e.preventDefault();  //prevent form from submitting
@@ -55,7 +71,7 @@ function formsubmit() {
 	  	drinkpass.innerHTML = 'Try scanning the card again. If the problem persists, ask Ivy Wang for help.';
 	  }
 	  else {
-	  	valid.innerHTML = '<div class="d-inline bg-danger">The authentication token you provided was invalid.</div>';
+	  	valid.innerHTML = '<div class="d-inline bg-danger">Invalid login.</div>';
 	  	drinkpass.innerHTML = 'Try logging out and logging in again. Note that each account can only be signed into one device at a time.';
 	  }
 	});
