@@ -30,7 +30,7 @@ var urlstring = "https://script.google.com/macros/s/AKfycbzxPD0XVTHnUWMctHFjPiEz
 	  "crossDomain": true,
 	  "url": urlstring,
 	  "method": "GET"
-	}
+	};
 
 	$.ajax(settings).done(function (response) {
 	  console.log(response);
