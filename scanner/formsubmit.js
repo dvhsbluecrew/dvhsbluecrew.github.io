@@ -25,36 +25,36 @@ tokenfield.value = token;
 //Initial check to see if token is valid
 var urlstring = "https://script.google.com/macros/s/AKfycbzxPD0XVTHnUWMctHFjPiEzwnSX2CrFhtOqQux_6mAFT4cmbdsh/exec?token=" + token;
 
-	var settings = {
-	  "async": true,
-	  "crossDomain": true,
-	  "url": urlstring,
-	  "method": "GET"
-	};
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": urlstring,
+  "method": "GET"
+};
 
-	$.ajax(settings).done(function (response) {
-	  console.log(response);
+$.ajax(settings).done(function (response) {
+  console.log(response);
 
-	  if(response.error == 1) {
-		modaltitle.innerHTML = 'Invalid token';
-	  	pagetitle.innerHTML = 'Invalid Login';
+  if(response.error == 1) {
+	modaltitle.innerHTML = 'Invalid token';
+  	pagetitle.innerHTML = 'Invalid Login';
 
-	  	valid.innerHTML = '<div class="d-inline bg-danger">Invalid login.</div>';
-	  	drinkpass.innerHTML = 'Please log in again. Note that each account can only be signed into one device at a time.';
+  	valid.innerHTML = '<div class="d-inline bg-danger">Invalid login.</div>';
+  	drinkpass.innerHTML = 'Please log in again. Note that each account can only be signed into one device at a time.';
 
-	  	$("#myModal").modal();
-	  }
-	  else {
-	  	username.innerHTML = response.checkinstaff;
-	  	signinlink.innerHTML = 'Log Out';
+  	$("#myModal").modal();
+  }
+  else {
+  	username.innerHTML = response.checkinstaff;
+  	signinlink.innerHTML = 'Log Out';
 
-	  	if(response.dashboard == 1) {
-		  	var $node = null;
-	        $node = $('<a class="dropdown-item" href="#">Open Dashboard</a>');
-	        $("#userdropdown").prepend($node);
-    	}
-	  }
-	});
+  	if(response.dashboard == 1) {
+	  	var $node = null;
+        $node = $('<a class="dropdown-item" href="#">Open Dashboard</a>');
+        $("#userdropdown").prepend($node);
+	}
+  }
+});
 
 //Form submit
 $(function() { //shorthand document.ready function
