@@ -80,6 +80,7 @@ function formsubmit() {
 
 	$.ajax(settings).done(function (response) {
 	  console.log(response);
+	  console.log(response.drinkpass2);
 	  modaltitle.innerHTML = response.name + ' (' + response.idnum + ')';
 	  pagetitle.innerHTML = response.name + ' (' + response.idnum + ')';
 
