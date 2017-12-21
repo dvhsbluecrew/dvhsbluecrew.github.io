@@ -86,7 +86,7 @@ function formsubmit() {
 	  if(response.error == 0) {
 	  	valid.innerHTML = '<div class="d-inline bg-success">Success! You checked the student in at ' + response.checkintime + '.</div>';
 
-	  	if(response.drinkpass = 1) {
+	  	if(response.drinkpass == 1) {
 	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink pass.';
 	  	}
 	  	else if(response.drinkpass > 1) {
@@ -99,7 +99,7 @@ function formsubmit() {
 	  else if(response.error == 2) {
 	  	valid.innerHTML = '<div class="d-inline bg-warning">This student was already checked in by ' + response.checkinstaff + ' at ' + response.checkintime + '.</div>';
 
-	  	if(response.drinkpass = 1) {
+	  	if(response.drinkpass == 1) {
 	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink pass.';
 	  	}
 	  	else if(response.drinkpass > 1) {
