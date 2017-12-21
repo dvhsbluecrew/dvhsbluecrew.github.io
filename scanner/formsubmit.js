@@ -86,11 +86,11 @@ function formsubmit() {
 	  if(response.error == 0) {
 	  	valid.innerHTML = '<div class="d-inline bg-success">Success! You checked the student in at ' + response.checkintime + '.</div>';
 
-	  	if(response.drinkpass == 1) {
-	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink pass.';
+	  	if(response.drinkpass2 == 1) {
+	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass2 + ' drink pass.';
 	  	}
-	  	else if(response.drinkpass > 1) {
-	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink passes.';
+	  	else if(response.drinkpass2 > 1) {
+	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass2 + ' drink passes.';
 	  	}
 	  	if(response.guestpass > 0) {
 	  		guestpass.innerHTML = 'Student has a guest: ' + response.guestname + '. Please verify the guest\'s ID.';
@@ -99,11 +99,11 @@ function formsubmit() {
 	  else if(response.error == 2) {
 	  	valid.innerHTML = '<div class="d-inline bg-warning">This student was already checked in by ' + response.checkinstaff + ' at ' + response.checkintime + '.</div>';
 
-	  	if(response.drinkpass == 1) {
-	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink pass.';
+	  	if(response.drinkpass2 == 1) {
+	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass2 + ' drink pass.';
 	  	}
-	  	else if(response.drinkpass > 1) {
-	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass + ' drink passes.';
+	  	else if(response.drinkpass2 > 1) {
+	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass2 + ' drink passes.';
 	  	}
 	  	if(response.guestpass > 0) {
 	  		guestpass.innerHTML = 'Student has a guest: ' + response.guestname + '. Please verify the guest\'s ID.';
