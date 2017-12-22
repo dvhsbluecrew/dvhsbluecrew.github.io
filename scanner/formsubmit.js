@@ -40,7 +40,16 @@ $.ajax(settings).done(function (response) {
   	pagetitle.innerHTML = 'Invalid Login';
 
   	valid.innerHTML = '<div class="d-inline bg-danger">Invalid login.</div>';
-  	drinkpass.innerHTML = 'Please log in again. Note that each account can only be signed into one device at a time.';
+  	drinkpass.innerHTML = 'Please log in again. Tap the link in the navigation bar to sign in.';
+
+  	$("#myModal").modal();
+  }
+  else if(response.error == 4) {
+	modaltitle.innerHTML = 'Expired token';
+  	pagetitle.innerHTML = 'Invalid Login';
+
+  	valid.innerHTML = '<div class="d-inline bg-danger">Invalid login.</div>';
+  	drinkpass.innerHTML = 'Hi, ' + response.checkinstaff + '! You were inactive for more than two hours so you must obtain a new access token. Please sign in again with a new access token.';
 
   	$("#myModal").modal();
   }
