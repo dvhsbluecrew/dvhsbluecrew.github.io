@@ -127,7 +127,7 @@ function formsubmit() {
 	  	modaltitle.innerHTML = 'Invalid token';
 	  	pagetitle.innerHTML = 'Invalid Login';
 	  	valid.innerHTML = '<div class="d-inline bg-danger">Invalid login.</div>';
-	  	drinkpass.innerHTML = 'Please log in again. Note that each account can only be signed into one device at a time.';
+	  	drinkpass.innerHTML = 'Please log in again. Tap the link in the navigation bar to sign in.';
 	  	username.innerHTML = 'Not Signed In';
 	  	signinlink.innerHTML = 'Sign In';
 	  }
