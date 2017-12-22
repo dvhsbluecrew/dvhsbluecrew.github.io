@@ -107,7 +107,7 @@ function formsubmit() {
 	  	}
 	  }
 	  else if(response.error == 2) {
-	  	valid.innerHTML = '<div class="d-inline bg-warning">This student was already checked in by ' + response.checkinstaff + ' at ' + response.checkintime + '.</div>';
+	  	valid.innerHTML = '<div class="d-inline bg-warning">This student was checked in by ' + response.checkinstaff + ' at ' + response.checkintime + '.</div>';
 
 	  	if(response.drinkpass2 == 1) {
 	  		drinkpass.innerHTML = 'Student has ' + response.drinkpass2 + ' drink pass.';

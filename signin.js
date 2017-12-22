@@ -85,7 +85,7 @@ function fcsignin() {
 	  	document.getElementById("password").value = "";
 	  }
 	  else if(response.error == 0) {
-	  	var redirectlink = "https://dvhsbluecrew.github.io/scanner/scanner.html";
+	  	var redirectlink = "https://dvhsbluecrew.github.io/dashboard/index.html?token=" + response.token;
 	  	window.location.replace(redirectlink);
 	  }
 	});
