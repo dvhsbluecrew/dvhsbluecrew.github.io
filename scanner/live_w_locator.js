@@ -289,7 +289,6 @@ $(function() {
 
             document.getElementById("search").value = code;
             formsubmit();
-            //document.getElementById("searchID").submit();
 
             // var $node = null;
 
