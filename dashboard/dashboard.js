@@ -65,7 +65,8 @@ function addtotable(results) {
 
 //Google Charts
 function drawChart(checkedin, notcheckedin) {
-
+  console.log("present");
+  console.log(checkedin, notcheckedin);
   //Call the JSON server function, return the values below
   //Results JSON format
   // var results = {
