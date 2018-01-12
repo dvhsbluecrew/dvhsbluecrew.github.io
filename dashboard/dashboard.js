@@ -1,6 +1,3 @@
-//Startup Scripts
-google.charts.load('current', {'packages':['corechart']});
-
 //Call the JSON server function, return the values below
 //Results JSON Format
 // var results = {
@@ -24,7 +21,8 @@ $.ajax(settings).done(function (response) {
 
   addtotable(response);
 
-  drawChart(response.checkedin, response.notcheckedin);
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart(response.checkedin, response.notcheckedin));
 });
 
 //Populate Table
