@@ -53,7 +53,7 @@ function addtotable(results) {
 
 //Google Charts
 function drawChart(checkedin, notcheckedin) {
-  var data = google.visualization.arrayToDataTable([
+  var data = new google.visualization.DataTable();
   data.addColumn('string', 'Group');
   data.addColumn('number', 'Number');
   data.addRows([
