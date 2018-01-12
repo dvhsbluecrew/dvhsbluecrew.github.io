@@ -73,9 +73,9 @@ function drawChart(checkedin, notcheckedin) {
 
 //Add Token To Links
 function editlinks(token, username) {
-  var username = document.getElementById('usernametext');
+  var usernametext = document.getElementById('usernametext');
   var tokenfield = document.getElementById('token');
-  username.innerHTML = "Hello, " + username;
+  usernametext.innerHTML = "Hello, " + username;
   tokenfield.value = token;
 
   document.getElementById("link1").href = "https://dvhsbluecrew.github.io/dashboard/index.html?token=" + response.token;
