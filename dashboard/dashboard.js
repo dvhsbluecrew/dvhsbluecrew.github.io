@@ -53,16 +53,13 @@ function addtotable(results) {
 
 //Google Charts
 function drawChart(checkedin, notcheckedin) {
-  console.log("present");
-  console.log(checkedin, notcheckedin);
-
   var data = google.visualization.arrayToDataTable([
-    data.addColumn('string', 'Group');
-    data.addColumn('number', 'Number');
-    data.addRows([
-      ['Checked In', checkedin],
-      ['Not Checked In', notcheckedin]
-    ]);
+  data.addColumn('string', 'Group');
+  data.addColumn('number', 'Number');
+  data.addRows([
+    ['Checked In', checkedin],
+    ['Not Checked In', notcheckedin]
+  ]);
 
   var options = {
     slices: [{color: 'green'}, {color: 'red'}],
