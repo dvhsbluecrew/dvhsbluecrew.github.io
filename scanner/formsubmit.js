@@ -36,7 +36,7 @@ $.ajax(settings).done(function (response) {
   console.log(response);
 
   if(response.error == 1 || response.error == 4) {
-	signout();
+	notloggedin();
   }
   else {
   	username.innerHTML = response.checkinstaff;
@@ -103,7 +103,7 @@ function formsubmit() {
 	  	drinkpass.innerHTML = 'Try scanning the card again. If the problem persists, ask Ivy Wang for help.';
 	  }
 	  else {
-	  	signout();
+	  	notloggedin();
 	  }
 	});
 
@@ -118,8 +118,13 @@ function formsubmit() {
 	return false;
 }
 
-//Log Out Script
+//Log Out / Not Logged In Scripts
+function notloggedin() {
+	var redirectlink = "https://dvhsbluecrew.github.io/signin.html";
+  	window.location.replace(redirectlink);
+}
+
 function signout() {
-  	var redirectlink = "https://dvhsbluecrew.github.io/signin.html";
+  	var redirectlink = "https://dvhsbluecrew.github.io/";
   	window.location.replace(redirectlink);
 }
