@@ -29,7 +29,7 @@ $.ajax(settings).done(function (response) {
 
 //Populate Table
 function addtotable(results) {
-  document.getElementById("myTable").deleteRow(0);
+  document.getElementById("tableresults").deleteRow(0);
 
   for (var i = results.students - 1; i >= 0; i--) {
     var $node = null;
