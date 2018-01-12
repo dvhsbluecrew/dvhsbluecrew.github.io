@@ -57,7 +57,7 @@ function addtotable(results) {
   }
 }
 
-function notloggedin {
+function notloggedin() {
   var redirectlink = "https://dvhsbluecrew.github.io/signin.html";
   window.location.replace(redirectlink);
 }
