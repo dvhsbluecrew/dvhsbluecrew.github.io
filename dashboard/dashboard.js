@@ -19,10 +19,15 @@ var settings = {
 $.ajax(settings).done(function (response) {
   console.log(response);
 
-  addtotable(response);
+  if(response.error == 0) {
+    addtotable(response);
 
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawChart(response.checkedin, response.notcheckedin));
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart(response.checkedin, response.notcheckedin));
+  }
+  else {
+    notloggedin();
+  }
 });
 
 //Populate Table
@@ -51,28 +56,16 @@ function addtotable(results) {
     $node.prependTo("#tablebody");
   }
 }
-//Prepend jquery (live_w_locator example)
-// var $node = null;
-// $node = $('<a class="dropdown-item" href="javascirpt:void(0)"></a>');
-// $node.find("a.dropdown-item").html(code);
-// $("#result-dropdown").prepend($node);
 
-//Native For Loop (consider using this instead)
-// for (var i = Things.length - 1; i >= 0; i--) {
-//   Things[i]
-// }
-
+function notloggedin {
+  var redirectlink = "https://dvhsbluecrew.github.io/signin.html";
+  window.location.replace(redirectlink);
+}
 
 //Google Charts
 function drawChart(checkedin, notcheckedin) {
   console.log("present");
   console.log(checkedin, notcheckedin);
-  //Call the JSON server function, return the values below
-  //Results JSON format
-  // var results = {
-  //   checkedin: num,
-  //   notcheckedin: num
-  // };
 
   var data = google.visualization.arrayToDataTable([
     ['Group', 'Number'],
