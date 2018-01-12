@@ -1,13 +1,73 @@
+//Startup Scripts
+var token = getParameterByName('token');
+
+var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=2";
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": urlstring,
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  //console.log(response);
+
+  addtotable(response);
+});
+
+
+//Populate Table
+function addtotable(results) {
+  //Call the JSON server function, return the values below
+  //Results JSON Format
+  // var results = {
+  //   students: numstudents,
+  //   data: [[ID, Name, Ticket, DP, GP, Guestname, Scanned, scantime, scannedby],...]
+  // };
+
+
+
+  for (var i = results.students - 1; i >= 0; i--) {
+    var $node = null;
+    $node = $('<tr><td class="id"></td><td class="name"></td><td class="dp"></td><td class="gp"></td><td class="checkedin"></td></tr>');
+    $node.find("td.id").html(results.data[i][0]);
+    $node.find("td.name").html(results.data[i][1]);
+    $node.find("td.dp").html(results.data[i][3]);
+    $node.find("td.gp").html(results.data[i][4], results.data[i][5]);
+    $node.find("td.checkedin").html(results.data[i][6]);
+    $("tablebody").prepend($node);
+  }
+}
+//Prepend jquery (live_w_locator example)
+// var $node = null;
+// $node = $('<a class="dropdown-item" href="javascirpt:void(0)"></a>');
+// $node.find("a.dropdown-item").html(code);
+// $("#result-dropdown").prepend($node);
+
+//Native For Loop (consider using this instead)
+// for (var i = Things.length - 1; i >= 0; i--) {
+//   Things[i]
+// }
+
+
 //Google Charts
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
+function drawChart(checkedin, notcheckedin) {
+
+  //Call the JSON server function, return the values below
+  //Results JSON format
+  // var results = {
+  //   checkedin: num,
+  //   notcheckedin: num
+  // };
 
   var data = google.visualization.arrayToDataTable([
     ['Group', 'Number'],
-    ['Checked In', 2],
-    ['Not Checked In', 4],
+    ['Checked In', checkedin],
+    ['Not Checked In', notcheckedin],
   ]);
 
   var options = {
@@ -97,4 +157,15 @@ function searchBar() {
       }
     } 
   }
+}
+
+//Get parameters from URL function
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
