@@ -38,7 +38,7 @@ function addtotable(results) {
     $node.find("td.id").html(results.data[i][0]);
     $node.find("td.name").html(results.data[i][1]);
     $node.find("td.dp").html(results.data[i][3]);
-    $node.find("td.gp").html(results.data[i][4], results.data[i][5]);
+    $node.find("td.gp").html(results.data[i][4] + ", " + results.data[i][5]);
     $node.find("td.checkedin").html(results.data[i][6]);
     //$("tablebody").prepend($node);
     $node.prependTo("#tablebody")
