@@ -36,7 +36,7 @@ function addtotable(results) {
     $node = $('<tr><td class="id"></td><td class="name"></td><td class="dp"></td><td class="gp"></td><td class="checkedin"></td></tr>');
     $node.find("td.id").html(results.data[i][0]);
     $node.find("td.name").html(results.data[i][1]);
-    if(results.data[i][3] < 0) {
+    if(results.data[i][3] > 0) {
       $node.find("td.dp").html("Yes, " + results.data[i][3]);
     }
     else {
