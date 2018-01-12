@@ -35,23 +35,8 @@ var settings = {
 $.ajax(settings).done(function (response) {
   console.log(response);
 
-  if(response.error == 1) {
-	modaltitle.innerHTML = 'Invalid token';
-  	pagetitle.innerHTML = 'Invalid Login';
-
-  	valid.innerHTML = '<div class="d-inline bg-danger">Invalid login.</div>';
-  	drinkpass.innerHTML = 'Please log in again. Tap the link in the navigation bar to sign in.';
-
-  	$("#myModal").modal();
-  }
-  else if(response.error == 4) {
-	modaltitle.innerHTML = 'Expired token';
-  	pagetitle.innerHTML = 'Invalid Login';
-
-  	valid.innerHTML = '<div class="d-inline bg-danger">Invalid login.</div>';
-  	drinkpass.innerHTML = 'Hi, ' + response.checkinstaff + '! You were inactive for more than two hours so you must obtain a new access token. Please sign in again with a new access token.';
-
-  	$("#myModal").modal();
+  if(response.error == 1 || response.error == 4) {
+	signout();
   }
   else {
   	username.innerHTML = response.checkinstaff;
@@ -118,12 +103,7 @@ function formsubmit() {
 	  	drinkpass.innerHTML = 'Try scanning the card again. If the problem persists, ask Ivy Wang for help.';
 	  }
 	  else {
-	  	modaltitle.innerHTML = 'Invalid token';
-	  	pagetitle.innerHTML = 'Invalid Login';
-	  	valid.innerHTML = '<div class="d-inline bg-danger">Invalid login.</div>';
-	  	drinkpass.innerHTML = 'Please log in again. Tap the link in the navigation bar to sign in.';
-	  	username.innerHTML = 'Not Signed In';
-	  	signinlink.innerHTML = 'Sign In';
+	  	signout();
 	  }
 	});
 
@@ -136,4 +116,10 @@ function formsubmit() {
 	guestpass.innerHTML = '';
 
 	return false;
+}
+
+//Log Out Script
+function signout() {
+  	var redirectlink = "https://dvhsbluecrew.github.io/";
+  	window.location.replace(redirectlink);
 }
