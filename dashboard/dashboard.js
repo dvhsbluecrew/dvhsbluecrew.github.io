@@ -18,7 +18,7 @@ $.ajax(settings).done(function (response) {
   if(response.error == 0) {
     addtotable(response);
     drawChart(response.checkedin, response.notcheckedin);
-    editlinks(response.token, response.username);
+    editlinks(token, response.username);
   }
   else {
     notloggedin();
