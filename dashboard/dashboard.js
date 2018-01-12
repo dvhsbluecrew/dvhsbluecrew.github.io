@@ -1,4 +1,6 @@
 //Startup Scripts
+google.charts.load('current', {'packages':['corechart']});
+
 var token = getParameterByName('token');
 
 var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=2";
@@ -15,8 +17,6 @@ $.ajax(settings).done(function (response) {
 
   addtotable(response);
 
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawChart);
   drawChart(response.checkedin, response.notcheckedin);
 });
 
