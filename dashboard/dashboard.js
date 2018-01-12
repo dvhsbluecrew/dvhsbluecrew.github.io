@@ -29,6 +29,7 @@ function addtotable(results) {
 
 
   for (var i = results.students - 1; i >= 0; i--) {
+    console.log(i);
     var $node = null;
     $node = $('<tr><td class="id"></td><td class="name"></td><td class="dp"></td><td class="gp"></td><td class="checkedin"></td></tr>');
     $node.find("td.id").html(results.data[i][0]);
