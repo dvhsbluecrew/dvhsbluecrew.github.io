@@ -1,6 +1,13 @@
 //Startup Scripts
 google.charts.load('current', {'packages':['corechart']});
 
+//Call the JSON server function, return the values below
+//Results JSON Format
+// var results = {
+//   students: numstudents,
+//   data: [[ID, Name, Ticket, DP, GP, Guestname, Scanned, scantime, scannedby],...]
+// };
+
 var token = getParameterByName('token');
 
 var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=2";
@@ -20,28 +27,30 @@ $.ajax(settings).done(function (response) {
   drawChart(response.checkedin, response.notcheckedin);
 });
 
-
 //Populate Table
 function addtotable(results) {
-  //Call the JSON server function, return the values below
-  //Results JSON Format
-  // var results = {
-  //   students: numstudents,
-  //   data: [[ID, Name, Ticket, DP, GP, Guestname, Scanned, scantime, scannedby],...]
-  // };
-
-
+  document.getElementById("myTable").deleteRow(0);
 
   for (var i = results.students - 1; i >= 0; i--) {
     var $node = null;
     $node = $('<tr><td class="id"></td><td class="name"></td><td class="dp"></td><td class="gp"></td><td class="checkedin"></td></tr>');
     $node.find("td.id").html(results.data[i][0]);
     $node.find("td.name").html(results.data[i][1]);
-    $node.find("td.dp").html(results.data[i][3]);
-    $node.find("td.gp").html(results.data[i][4] + ", " + results.data[i][5]);
+    if(results.data[i][3] < 0) {
+      $node.find("td.dp").html("Yes, " + results.data[i][3]);
+    }
+    else {
+      $node.find("td.dp").html("No");
+    }
+    if(results.data[i][4] == 1) {
+      $node.find("td.gp").html("Yes, " + results.data[i][5]);
+    }
+    else {
+      $node.find("td.gp").html("No");
+    }
     $node.find("td.checkedin").html(results.data[i][6]);
     //$("tablebody").prepend($node);
-    $node.prependTo("#tablebody")
+    $node.prependTo("#tablebody");
   }
 }
 //Prepend jquery (live_w_locator example)
