@@ -1,9 +1,5 @@
-//Call the JSON server function, return the values below
-//Results JSON Format
-// var results = {
-//   students: numstudents,
-//   data: [[ID, Name, Ticket, DP, GP, Guestname, Scanned, scantime, scannedby],...]
-// };
+//Startup Script
+google.charts.load('current', {'packages':['corechart']});
 
 var token = getParameterByName('token');
 
@@ -21,9 +17,7 @@ $.ajax(settings).done(function (response) {
 
   if(response.error == 0) {
     addtotable(response);
-
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart(response.checkedin, response.notcheckedin));
+    drawChart(response.checkedin, response.notcheckedin);
   }
   else {
     notloggedin();
@@ -57,30 +51,32 @@ function addtotable(results) {
   }
 }
 
-function notloggedin() {
-  var redirectlink = "https://dvhsbluecrew.github.io/signin.html";
-  window.location.replace(redirectlink);
-}
-
 //Google Charts
 function drawChart(checkedin, notcheckedin) {
   console.log("present");
   console.log(checkedin, notcheckedin);
 
   var data = google.visualization.arrayToDataTable([
-    ['Group', 'Number'],
-    ['Checked In', checkedin],
-    ['Not Checked In', notcheckedin],
-  ]);
+    data.addColumn('string', 'Group');
+    data.addColumn('number', 'Number');
+    data.addRows([
+      ['Checked In', checkedin],
+      ['Not Checked In', notcheckedin]
+    ]);
 
   var options = {
     slices: [{color: 'green'}, {color: 'red'}],
-    legend: 'none',
+    legend: 'none'
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
   chart.draw(data, options);
+}
+
+//Not Logged In Redirect
+function notloggedin() {
+  var redirectlink = "https://dvhsbluecrew.github.io/signin.html";
+  window.location.replace(redirectlink);
 }
 
 //Table Sort Function
