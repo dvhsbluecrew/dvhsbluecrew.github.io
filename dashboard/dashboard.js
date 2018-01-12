@@ -37,7 +37,8 @@ function addtotable(results) {
     $node.find("td.dp").html(results.data[i][3]);
     $node.find("td.gp").html(results.data[i][4], results.data[i][5]);
     $node.find("td.checkedin").html(results.data[i][6]);
-    $("tablebody").prepend($node);
+    //$("tablebody").prepend($node);
+    $node.prependTo("table > tbody")
   }
 }
 //Prepend jquery (live_w_locator example)
