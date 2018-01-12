@@ -14,6 +14,10 @@ $.ajax(settings).done(function (response) {
   console.log(response);
 
   addtotable(response);
+
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+  drawChart(response.checkedin, response.notcheckedin);
 });
 
 
@@ -29,7 +33,6 @@ function addtotable(results) {
 
 
   for (var i = results.students - 1; i >= 0; i--) {
-    console.log(i);
     var $node = null;
     $node = $('<tr><td class="id"></td><td class="name"></td><td class="dp"></td><td class="gp"></td><td class="checkedin"></td></tr>');
     $node.find("td.id").html(results.data[i][0]);
@@ -38,7 +41,7 @@ function addtotable(results) {
     $node.find("td.gp").html(results.data[i][4], results.data[i][5]);
     $node.find("td.checkedin").html(results.data[i][6]);
     //$("tablebody").prepend($node);
-    $node.prependTo("table > tbody")
+    $node.prependTo("tablebody")
   }
 }
 //Prepend jquery (live_w_locator example)
@@ -54,9 +57,6 @@ function addtotable(results) {
 
 
 //Google Charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
 function drawChart(checkedin, notcheckedin) {
 
   //Call the JSON server function, return the values below
