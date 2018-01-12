@@ -75,11 +75,11 @@ function drawChart(checkedin, notcheckedin) {
 function editlinks(token, username) {
   var usernametext = document.getElementById('usernametext');
   var tokenfield = document.getElementById('token');
-  usernametext.innerHTML = "Hello, " + username;
+  usernametext.innerHTML = "Hello, " + username + "!";
   tokenfield.value = token;
 
-  document.getElementById("link1").href = "https://dvhsbluecrew.github.io/dashboard/index.html?token=" + response.token;
-  document.getElementById("link2").href = "https://dvhsbluecrew.github.io/scanner/scanner.html?token=" + response.token;
+  document.getElementById("link1").href = "https://dvhsbluecrew.github.io/dashboard/index.html?token=" + token;
+  document.getElementById("link2").href = "https://dvhsbluecrew.github.io/scanner/scanner.html?token=" + token;
 }
 
 //Not Logged In Redirect
