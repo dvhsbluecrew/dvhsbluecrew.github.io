@@ -120,6 +120,6 @@ function formsubmit() {
 
 //Log Out Script
 function signout() {
-  	var redirectlink = "https://dvhsbluecrew.github.io/";
+  	var redirectlink = "https://dvhsbluecrew.github.io/signin.html";
   	window.location.replace(redirectlink);
 }
