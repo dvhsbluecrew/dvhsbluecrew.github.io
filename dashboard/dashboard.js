@@ -18,6 +18,7 @@ $.ajax(settings).done(function (response) {
   if(response.error == 0) {
     addtotable(response);
     drawChart(response.checkedin, response.notcheckedin);
+    editlinks(response.token, response.username);
   }
   else {
     notloggedin();
@@ -70,10 +71,41 @@ function drawChart(checkedin, notcheckedin) {
   chart.draw(data, options);
 }
 
+//Add Token To Links
+function editlinks(token, username) {
+  var username = document.getElementById('dropdown02');
+  var tokenfield = document.getElementById('token');
+  username.innerHTML = "Hello, " + username;
+  tokenfield.value = token;
+
+  document.getElementById("link1").href = "https://dvhsbluecrew.github.io/dashboard/index.html?token=" + response.token;
+  document.getElementById("link2").href = "https://dvhsbluecrew.github.io/scanner/scanner.html?token=" + response.token;
+}
+
 //Not Logged In Redirect
 function notloggedin() {
   var redirectlink = "https://dvhsbluecrew.github.io/signin.html";
   window.location.replace(redirectlink);
+}
+
+//Sign Out Function
+function signout() {
+  var signoutbutton = document.getElementById('signoutbutton');
+  signoutbutton.innerHTML = "Please Wait...";
+
+  var urlstring = "https://script.google.com/macros/s/AKfycbwtlwqCUJLyfo54Kqb3kSUN1Sc3B-QUVk6hAjl1FfCcEKZsABQ/exec?token=" + token;
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": urlstring,
+    "method": "GET"
+  };
+
+  $.ajax(settings).done(function (response) {
+    var redirectlink = "https://dvhsbluecrew.github.io/";
+    window.location.replace(redirectlink);
+  });
 }
 
 //Table Sort Function

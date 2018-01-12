@@ -56,12 +56,6 @@ $.ajax(settings).done(function (response) {
   else {
   	username.innerHTML = response.checkinstaff;
   	signinlink.innerHTML = 'Log Out';
-
-  	if(response.dashboard == 1) {
-	  	var $node = null;
-        $node = $('<a class="dropdown-item" href="#">Open Dashboard</a>');
-        $("#userdropdown").prepend($node);
-	}
   }
 });
 
