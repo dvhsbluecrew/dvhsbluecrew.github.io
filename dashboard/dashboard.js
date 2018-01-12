@@ -73,7 +73,7 @@ function drawChart(checkedin, notcheckedin) {
 
 //Add Token To Links
 function editlinks(token, username) {
-  var username = document.getElementById('dropdown02');
+  var username = document.getElementById('usernametext');
   var tokenfield = document.getElementById('token');
   username.innerHTML = "Hello, " + username;
   tokenfield.value = token;
