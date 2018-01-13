@@ -66,8 +66,12 @@ function addtotable(results) {
     else {
       $node.find("td.gp").html("No");
     }
-    $node.find("td.checkedin").html(results.data[i][6]);
-    //$("tablebody").prepend($node);
+    if(results.data[i][6] == 1) {
+      $node.find("td.checkedin").html("Yes, at " + results.data[i][7] + " by " + results.data[i][8]);
+    }
+    else {
+      $node.find("td.checkedin").html("No. <a onclick=\"clicktocheckin(" + results.data[i][0] + ") \" href=\"javascript:void(0);\">Click to Check In</a>");
+    }
     $node.prependTo("#tablebody");
   }
 }
@@ -126,6 +130,12 @@ function signout() {
     var redirectlink = "https://dvhsbluecrew.github.io/";
     window.location.replace(redirectlink);
   });
+}
+
+//Click to Check In
+function clicktocheckin(number) {
+  document.getElementById("search").value = number;
+  formsubmit();
 }
 
 //Form submit
