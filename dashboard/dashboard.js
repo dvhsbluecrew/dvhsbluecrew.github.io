@@ -138,6 +138,8 @@ function refreshtable() {
   var $node = null;
   $node = $('<tr><td></td><td>Data is loading, please wait...</td><td></td><td></td><td></td></tr>');
   $node.prependTo("#tablebody");
+  var token = getParameterByName('token');
+  gettabledata(token);
 }
 
 //Click to Check In
