@@ -46,6 +46,7 @@ function gettabledata(token) {
 //Populate Table
 function addtotable(results) {
   document.getElementById("tableresults").deleteRow(1);
+  var token = document.getElementById('token').value;
 
   for (var i = results.data.length - 1; i >= 0; i--) {
     var $node = null;
@@ -53,7 +54,12 @@ function addtotable(results) {
     $node.find("td.token").html(results.data[i][0]);
     $node.find("td.name").html(results.data[i][1]);
     $node.find("td.expiry").html(results.data[i][2]);
-    $node.find("td.delete").html("<a onclick=\"deletetoken(\'" + results.data[i][0] + "\') \" href=\"javascript:void(0);\">Click to Deactivate Token</a>");
+    if(results.data[i][0] == token) {
+      $node.find("td.delete").html("You can't delete your current token.");
+    }
+    else {
+      $node.find("td.delete").html("<a onclick=\"deletetoken(\'" + results.data[i][0] + "\') \" href=\"javascript:void(0);\">Click to Deactivate Token</a>");
+    }
     $node.prependTo("#tablebody");
   }
 }
