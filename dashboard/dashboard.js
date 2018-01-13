@@ -23,7 +23,7 @@ $.ajax(settings).done(function (response) {
 
 //Get table data
 function gettabledata(token) {
-  var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=2";
+  var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=12";
 
   var settings = {
     "async": true,
@@ -47,7 +47,7 @@ function gettabledata(token) {
 
 //Populate Table
 function addtotable(results) {
-  document.getElementById("tableresults").deleteRow(1);
+  $("#tableresults tbody tr").remove();
 
   for (var i = results.data.length - 1; i >= 0; i--) {
     var $node = null;
@@ -66,14 +66,11 @@ function addtotable(results) {
     else {
       $node.find("td.gp").html("No");
     }
-    if(results.data[i][6] == 1) {
-      $node.find("td.checkedin").html("Yes, at " + results.data[i][7] + " by " + results.data[i][8]);
-    }
-    else {
-      $node.find("td.checkedin").html("No. <a onclick=\"clicktocheckin(" + results.data[i][0] + ") \" href=\"javascript:void(0);\">Click to Check In</a>");
-    }
+    $node.find("td.checkedin").html(results.data[i][7] + ", by " + results.data[i][8]);
     $node.prependTo("#tablebody");
   }
+
+  setTimeout(refreshtable(), 5000);
 }
 
 //Google Charts
@@ -143,10 +140,6 @@ function signout() {
 
 //Refresh Table
 function refreshtable() {
-  $("#tableresults tbody tr").remove();
-  var $node = null;
-  $node = $('<tr><td></td><td>Data is loading, please wait...</td><td></td><td></td><td></td></tr>');
-  $node.prependTo("#tablebody");
   var token = getParameterByName('token');
   gettabledata(token);
 }

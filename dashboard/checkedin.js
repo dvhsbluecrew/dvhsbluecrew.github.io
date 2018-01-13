@@ -66,12 +66,7 @@ function addtotable(results) {
     else {
       $node.find("td.gp").html("No");
     }
-    if(results.data[i][6] == 1) {
-      $node.find("td.checkedin").html("Yes, at " + results.data[i][7] + " by " + results.data[i][8]);
-    }
-    else {
-      $node.find("td.checkedin").html("No. <a onclick=\"clicktocheckin(" + results.data[i][0] + ") \" href=\"javascript:void(0);\">Click to Check In</a>");
-    }
+    $node.find("td.checkedin").html(results.data[i][7] + ", by " + results.data[i][8]);
     $node.prependTo("#tablebody");
   }
 }
