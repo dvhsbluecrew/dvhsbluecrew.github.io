@@ -49,11 +49,16 @@ function addtotable(results) {
 
   for (var i = results.data.length - 1; i >= 0; i--) {
     var $node = null;
-    $node = $('<tr><td class="token"></td><td class="name"></td><td class="expiry"></td><td class="delete"></td></tr>');
-    $node.find("td.token").html(results.data[i][0]);
-    $node.find("td.name").html(results.data[i][1]);
-    $node.find("td.expiry").html(results.data[i][2]);
-    $node.find("td.delete").html("<a onclick=\"deletetoken(\'" + results.data[i][0] + "\') \" href=\"javascript:void(0);\">Click to Deactivate Token</a>");
+    $node = $('<tr><td class="name"></td><td class="username"></td><td class="active"></td><td class="delete"></td></tr>');
+    $node.find("td.name").html(results.data[i][0]);
+    $node.find("td.username").html(results.data[i][1]);
+    if(results.data[i][2] == 1) {
+      $node.find("td.active").html("Yes");
+    }
+    else {
+      node.find("td.active").html("No");
+    }
+    $node.find("td.delete").html("<a onclick=\"deleteaccount(\'" + results.data[i][1] + "\') \" href=\"javascript:void(0);\">Click to Delete Account</a>");
     $node.prependTo("#tablebody");
   }
 }
