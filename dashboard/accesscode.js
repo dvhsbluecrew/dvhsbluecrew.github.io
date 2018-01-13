@@ -103,6 +103,7 @@ function createtoken() {
 
     refreshtable();
   });
+}
 
 //Delete Token Function
 function deletetoken(dtoken) {
