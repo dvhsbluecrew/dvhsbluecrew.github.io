@@ -1,9 +1,8 @@
-//Startup Script
+//Initial Token Check
 google.charts.load('current', {'packages':['corechart']});
-
 var token = getParameterByName('token');
 
-var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=2";
+var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=1";
 
 var settings = {
   "async": true,
@@ -13,17 +12,38 @@ var settings = {
 };
 
 $.ajax(settings).done(function (response) {
-  //console.log(response);
-
   if(response.error == 0) {
-    addtotable(response);
-    drawChart(response.checkedin, response.notcheckedin);
     editlinks(token, response.username);
+    gettabledata(token);
   }
   else {
     notloggedin();
   }
 });
+
+//Get table data
+function gettabledata(token) {
+  var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=2";
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": urlstring,
+    "method": "GET"
+  };
+
+  $.ajax(settings).done(function (response) {
+    //console.log(response);
+
+    if(response.error == 0) {
+      addtotable(response);
+      drawChart(response.checkedin, response.notcheckedin);
+    }
+    else {
+      notloggedin();
+    }
+  });
+}
 
 //Populate Table
 function addtotable(results) {
