@@ -63,7 +63,7 @@ function addtotable(results) {
       $node.find("td.delete").html("You can\'t delete your own account");
     }
     else {
-      $node.find("td.delete").html("<a style="color: rgb(255,0,0)" onclick=\"deleteaccount(\'" + results.data[i][1] + "\') \" href=\"javascript:void(0);\">Click to Delete Account</a>");
+      $node.find("td.delete").html("<a style=\"color: rgb(255,0,0)\" onclick=\"deleteaccount(\'" + results.data[i][1] + "\') \" href=\"javascript:void(0);\">Click to Delete Account</a>");
     }
     $node.prependTo("#tablebody");
   }
