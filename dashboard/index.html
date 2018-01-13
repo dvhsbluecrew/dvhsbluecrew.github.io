@@ -96,13 +96,25 @@
         <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
           <h1>Dashboard</h1>
 
-          <section class="row text-center placeholders">
-            <div class="col-6 col-sm-4 placeholder">
-              <div id="piechart" style="height: 400px;" class="img-fluid rounded-circle"></div>
-              <h4>% Checked In</h4>
-              <div class="text-muted">All Students</div>
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <section class="row text-center placeholders">
+                  <div class="col-6 col-sm-4 placeholder">
+                    <div id="piechart" style="height: 400px;" class="img-fluid rounded-circle"></div>
+                    <h4>% Checked In</h4>
+                    <div class="text-muted">All Students</div>
+                  </div>
+                </section>
+              </div>
+              <div class="col-12 col-md-6">
+                <h2>Quick Links (for Mobile)</h2>
+                <p><a href="javascript:void(0);" id="link8">Open Scanner</a></p>
+                <p><a href="javascript:void(0);" id="link9">Manage Tokens</a></p>
+                <p><a href="javascript:void(0);" id="link10">Manage Accounts</a></p>
+              </div>
             </div>
-          </section>
+          </div>
 
           <!-- <section class="row text-center placeholders">
             <div class="col-6 col-sm-3 placeholder">
@@ -128,7 +140,7 @@
           </section> -->
 
           <h2>Section title</h2>
-          <p><a onclick="refreshtable()" href="javascript:void(0);">Refresh Table</a>
+          <p><a onclick="refreshtable()" href="javascript:void(0);">Refresh Table</a></p>
           <div class="table-responsive">
             <table class="table table-striped" id="tableresults">
               <thead>

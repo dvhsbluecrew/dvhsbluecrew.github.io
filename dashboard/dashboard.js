@@ -110,6 +110,9 @@ function editlinks(token, username) {
   document.getElementById("link5").href = "https://dvhsbluecrew.github.io/dashboard/checkedin.html?token=" + token;
   document.getElementById("link6").href = "https://dvhsbluecrew.github.io/dashboard/notcheckedin.html?token=" + token;
   document.getElementById("link7").href = "https://dvhsbluecrew.github.io/dashboard/allstudents.html?token=" + token;
+  document.getElementById("link8").href = "https://dvhsbluecrew.github.io/scanner/scanner.html?token=" + token;
+  document.getElementById("link9").href = "https://dvhsbluecrew.github.io/dashboard/accesscode.html?token=" + token;
+  document.getElementById("link10").href = "https://dvhsbluecrew.github.io/dashboard/manage.html?token=" + token;
 }
 
 //Not Logged In Redirect
