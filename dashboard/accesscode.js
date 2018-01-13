@@ -58,6 +58,52 @@ function addtotable(results) {
   }
 }
 
+//Create New Token Function
+$(function() { //shorthand document.ready function
+    $('#addtoken').on('submit', function(e) { //use on if jQuery 1.7+
+        e.preventDefault();  //prevent form from submitting
+        createtoken();
+    });
+});
+
+function createtoken() {
+  var modaltitle = document.getElementById('modalTitle');
+  var valid = document.getElementById('valid');
+  var drinkpass = document.getElementById('drinkpass');
+  var guestpass = document.getElementById('guestpass');
+
+  $("#myModal").modal();
+
+  modaltitle.innerHTML = 'Please Wait...';
+  valid.innerHTML = 'We are creating your new token...';
+  drinkpass.innerHTML = '';
+  guestpass.innerHTML = '';
+
+  //Get values from form
+  var newname = document.getElementById('name').value;
+  var token = document.getElementById('token').value;
+
+  var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&newname=" + newname + "&content=7";
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": urlstring,
+    "method": "GET"
+  }
+
+  $.ajax(settings).done(function (response) {
+    var newnamefield = document.getElementById('name');
+    newnamefield.value = "";
+
+    modaltitle.innerHTML = 'Success!';
+    valid.innerHTML = 'Your new token is: ' + response.data[0];
+    drinkpass.innerHTML = 'This token has been assigned to: ' + response.data[1];
+    guestpass.innerHTML = 'New tokens may be used anytime. After a token has been used, it will expire after two hours of inactivity.';
+
+    refreshtable();
+  });
+
 //Delete Token Function
 function deletetoken(dtoken) {
   var token = document.getElementById('token').value;

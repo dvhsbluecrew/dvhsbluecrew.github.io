@@ -96,6 +96,20 @@
         <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
           <h1>Token Management</h1>
 
+          <h2>Create Token</h2>
+          <form id="addtoken">
+            <div class="form-group">
+              <label for="name">Enter the name of the person who will be using this token.</label>
+              <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="form-group">
+              <label>New tokens may be used anytime. After a token has been used, it will expire after two hours of inactivity.</label>
+            </div>
+            <button type="submit" value="submit" class="btn btn-default">Create Token</button>
+          </form>
+
+          <h2>&nbsp</h2>
+
           <!-- <section class="row text-center placeholders">
             <div class="col-6 col-sm-3 placeholder">
               <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
