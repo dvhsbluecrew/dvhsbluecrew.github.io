@@ -49,12 +49,18 @@ function addtotable(results) {
 
   for (var i = results.data.length - 1; i >= 0; i--) {
     var $node = null;
-    $node = $('<tr><td class="token"></td><td class="name"></td><td class="expiry"></td></tr>');
+    $node = $('<tr><td class="token"></td><td class="name"></td><td class="expiry"></td><td class="delete"></td></tr>');
     $node.find("td.token").html(results.data[i][0]);
     $node.find("td.name").html(results.data[i][1]);
     $node.find("td.expiry").html(results.data[i][2]);
+    $node.find("td.delete").html("<a onclick=\"deletetoken(" + results.data[i][0] + ") \" href=\"javascript:void(0);\">Click to Deactivate Token</a>");
     $node.prependTo("#tablebody");
   }
+}
+
+//Delete Token Function
+function deletetoken(token) {
+  //stuff here
 }
 
 //Add Token To Links
