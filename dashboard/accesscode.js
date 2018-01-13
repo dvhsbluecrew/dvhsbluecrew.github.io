@@ -129,6 +129,20 @@ function deletetoken(dtoken) {
   });
 }
 
+//Delete All Tokens (Recycle Tokens)
+$(function() { //shorthand document.ready function
+    $('#recycletokens').on('submit', function(e) { //use on if jQuery 1.7+
+        e.preventDefault();  //prevent form from submitting
+        createtoken();
+    });
+});
+
+
+
+
+
+
+
 //Add Token To Links
 function editlinks(token, username) {
   var usernametext = document.getElementById('usernametext');
