@@ -142,6 +142,13 @@ function formsubmit() {
   var drinkpass = document.getElementById('drinkpass');
   var guestpass = document.getElementById('guestpass');
 
+  $("#myModal").modal();
+
+  modaltitle.innerHTML = 'Please Wait...';
+  valid.innerHTML = '';
+  drinkpass.innerHTML = '';
+  guestpass.innerHTML = '';
+
   //Get values from form
   var idnumber = document.getElementById('search').value;
   var token = document.getElementById('token').value;
@@ -192,14 +199,6 @@ function formsubmit() {
       notloggedin();
     }
   });
-
-  $("#myModal").modal();
-
-  modaltitle.innerHTML = 'Please Wait...';
-  pagetitle.innerHTML = 'Please Wait...';
-  valid.innerHTML = '';
-  drinkpass.innerHTML = '';
-  guestpass.innerHTML = '';
 
   return false;
 }
