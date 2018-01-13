@@ -53,7 +53,7 @@ function addtotable(results) {
     $node.find("td.token").html(results.data[i][0]);
     $node.find("td.name").html(results.data[i][1]);
     $node.find("td.expiry").html(results.data[i][2]);
-    $node.find("td.delete").html("<a onclick=\"deletetoken(" + results.data[i][0] + ") \" href=\"javascript:void(0);\">Click to Deactivate Token</a>");
+    $node.find("td.delete").html("<a onclick=\"deletetoken(\'" + results.data[i][0] + "\') \" href=\"javascript:void(0);\">Click to Deactivate Token</a>");
     $node.prependTo("#tablebody");
   }
 }
