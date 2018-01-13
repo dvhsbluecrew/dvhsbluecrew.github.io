@@ -49,7 +49,7 @@ function addtotable(results) {
   var pageheader = document.getElementById('pageheader');
   pageheader.innerHTML = "Students Checked In (" + results.checkedin + ")";
 
-  for (var i = results.students - 1; i >= 0; i--) {
+  for (var i = results.checkedin - 1; i >= 0; i--) {
     var $node = null;
     $node = $('<tr><td class="id"></td><td class="name"></td><td class="dp"></td><td class="gp"></td><td class="checkedin"></td></tr>');
     $node.find("td.id").html(results.data[i][0]);
