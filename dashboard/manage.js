@@ -46,6 +46,7 @@ function gettabledata(token) {
 //Populate Table
 function addtotable(results) {
   document.getElementById("tableresults").deleteRow(1);
+  var token = document.getElementById('token').value;
 
   for (var i = results.data.length - 1; i >= 0; i--) {
     var $node = null;
@@ -58,7 +59,12 @@ function addtotable(results) {
     else {
       node.find("td.active").html("No");
     }
-    $node.find("td.delete").html("<a onclick=\"deleteaccount(\'" + results.data[i][1] + "\') \" href=\"javascript:void(0);\">Click to Delete Account</a>");
+    if(results.data[i][3] == token) {
+      $node.find("td.delete").html("You can\'t delete your own account");
+    }
+    else {
+      $node.find("td.delete").html("<a style="color: rgb(255,0,0)" onclick=\"deleteaccount(\'" + results.data[i][1] + "\') \" href=\"javascript:void(0);\">Click to Delete Account</a>");
+    }
     $node.prependTo("#tablebody");
   }
 }
