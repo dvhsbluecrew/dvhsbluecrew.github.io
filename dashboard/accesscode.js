@@ -71,7 +71,7 @@ function deletetoken(dtoken) {
   };
 
   $.ajax(settings).done(function (response) {
-    //console.log(response);
+    console.log(response);
 
     if(response.error == 0) {
       refreshtable();
