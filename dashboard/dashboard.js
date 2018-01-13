@@ -1,5 +1,12 @@
 //Startup Script
 google.charts.load('current', {'packages':['corechart']});
+var username = document.getElementById('dropdown02');
+var signinlink = document.getElementById('signinlink');
+var modaltitle = document.getElementById('modalTitle');
+var pagetitle = document.getElementById('title');
+var valid = document.getElementById('valid');
+var drinkpass = document.getElementById('drinkpass');
+var guestpass = document.getElementById('guestpass');
 
 var token = getParameterByName('token');
 
