@@ -49,7 +49,7 @@ function addtotable(results) {
   var pageheader = document.getElementById('pageheader');
   pageheader.innerHTML = "Students Not Checked In (" + results.notcheckedin + ")";
 
-  for (var i = results.notcheckedin - 1; i >= 0; i--) {
+  for (var i = results.data.length - 1; i >= 0; i--) {
     var $node = null;
     $node = $('<tr><td class="id"></td><td class="name"></td><td class="dp"></td><td class="gp"></td><td class="checkedin"></td></tr>');
     $node.find("td.id").html(results.data[i][0]);
