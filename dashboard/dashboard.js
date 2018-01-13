@@ -1,12 +1,5 @@
 //Startup Script
 google.charts.load('current', {'packages':['corechart']});
-var username = document.getElementById('dropdown02');
-var signinlink = document.getElementById('signinlink');
-var modaltitle = document.getElementById('modalTitle');
-var pagetitle = document.getElementById('title');
-var valid = document.getElementById('valid');
-var drinkpass = document.getElementById('drinkpass');
-var guestpass = document.getElementById('guestpass');
 
 var token = getParameterByName('token');
 
@@ -124,6 +117,11 @@ $(function() { //shorthand document.ready function
 });
 
 function formsubmit() {
+  var modaltitle = document.getElementById('modalTitle');
+  var valid = document.getElementById('valid');
+  var drinkpass = document.getElementById('drinkpass');
+  var guestpass = document.getElementById('guestpass');
+
   //Get values from form
   var idnumber = document.getElementById('search').value;
   var token = document.getElementById('token').value;
@@ -138,10 +136,7 @@ function formsubmit() {
   }
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
-    console.log(response.drinkpass2);
     modaltitle.innerHTML = response.name + ' (' + response.idnum + ')';
-    pagetitle.innerHTML = response.name + ' (' + response.idnum + ')';
 
     if(response.error == 0) {
       valid.innerHTML = '<div class="d-inline bg-success">Success! You checked the student in at ' + response.checkintime + '.</div>';
@@ -171,7 +166,7 @@ function formsubmit() {
     }
     else if(response.error == 3){
       valid.innerHTML = '<div class="d-inline bg-danger">We were unable to find a valid ticket with student ID #' + response.idnum + '.</div>';
-      drinkpass.innerHTML = 'Try scanning the card again. If the problem persists, ask Ivy Wang for help.';
+      drinkpass.innerHTML = 'Try scanning the card again.';
     }
     else {
       notloggedin();

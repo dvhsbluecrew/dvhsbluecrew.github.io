@@ -19,8 +19,6 @@ function tokensignin() {
 	}
 
 	$.ajax(settings).done(function (response) {
-	  console.log(response);
-
 	  var modalTitle = document.getElementById('modalTitle');
 	  var modalBody = document.getElementById('valid');
 	  
@@ -71,8 +69,6 @@ function fcsignin() {
 	}
 
 	$.ajax(settings).done(function (response) {
-	  console.log(response);
-
 	  var modalTitle = document.getElementById('modalTitle');
 	  var modalBody = document.getElementById('valid');
 	  

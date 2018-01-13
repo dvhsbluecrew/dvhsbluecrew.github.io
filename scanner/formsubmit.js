@@ -33,7 +33,7 @@ var settings = {
 };
 
 $.ajax(settings).done(function (response) {
-  console.log(response);
+  //console.log(response);
 
   if(response.error == 1 || response.error == 4) {
 	notloggedin();
