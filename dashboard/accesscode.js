@@ -59,8 +59,27 @@ function addtotable(results) {
 }
 
 //Delete Token Function
-function deletetoken(token) {
-  //stuff here
+function deletetoken(dtoken) {
+  var token = document.getElementById('token').value;
+  var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&dtoken=" + dtoken + "content=6";
+
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": urlstring,
+    "method": "GET"
+  };
+
+  $.ajax(settings).done(function (response) {
+    //console.log(response);
+
+    if(response.error == 0) {
+      refreshtable();
+    }
+    else {
+      notloggedin();
+    }
+  });
 }
 
 //Add Token To Links
