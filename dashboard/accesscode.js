@@ -118,8 +118,6 @@ function deletetoken(dtoken) {
   };
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
-
     if(response.error == 0) {
       refreshtable();
     }
@@ -133,15 +131,30 @@ function deletetoken(dtoken) {
 $(function() { //shorthand document.ready function
     $('#recycletokens').on('submit', function(e) { //use on if jQuery 1.7+
         e.preventDefault();  //prevent form from submitting
-        createtoken();
+        recycletokens();
     });
 });
 
+function recycletokens() {
+  var token = document.getElementById('token').value;
+  var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=11";
 
+  var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": urlstring,
+    "method": "GET"
+  };
 
-
-
-
+  $.ajax(settings).done(function (response) {
+    if(response.error == 0) {
+      refreshtable();
+    }
+    else {
+      notloggedin();
+    }
+  });
+}
 
 //Add Token To Links
 function editlinks(token, username) {
