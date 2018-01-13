@@ -132,6 +132,14 @@ function signout() {
   });
 }
 
+//Refresh Table
+function refreshtable() {
+  $("#tableresults tbody tr").remove();
+  var $node = null;
+  $node = $('<tr><td></td><td>Data is loading, please wait...</td><td></td><td></td><td></td></tr>');
+  $node.prependTo("#tablebody");
+}
+
 //Click to Check In
 function clicktocheckin(number) {
   document.getElementById("search").value = number;
