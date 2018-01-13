@@ -57,7 +57,7 @@ function addtotable(results) {
       $node.find("td.active").html("Yes");
     }
     else {
-      node.find("td.active").html("No");
+      $node.find("td.active").html("No");
     }
     if(results.data[i][3] == token) {
       $node.find("td.delete").html("You can\'t delete your own account");
@@ -69,7 +69,7 @@ function addtotable(results) {
   }
 }
 
-//Create New Token Function
+//Create New Account Function
 $(function() { //shorthand document.ready function
     $('#addaccount').on('submit', function(e) { //use on if jQuery 1.7+
         e.preventDefault();  //prevent form from submitting
