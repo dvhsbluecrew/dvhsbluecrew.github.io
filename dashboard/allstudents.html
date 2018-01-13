@@ -11,7 +11,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Main - Dashboard</title>
+    <title>All Students - Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -22,7 +22,7 @@
 
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand navfont" href="javascript:void(0)" id="link0">Dashboard</a>
+      <a class="navbar-brand navfont" href="#">Dashboard</a>
       <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -49,7 +49,7 @@
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="javascript:void(0)" id="link1">Overview <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="javascript:void(0)" id="link1">Overview</a>
             </li>
           </ul>
 
@@ -76,7 +76,7 @@
               <a class="nav-link" href="javascript:void(0)" id="link6">Students Not Checked In</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:void(0)" id="link7">All Students</a>
+              <a class="nav-link active" href="javascript:void(0)" id="link7">All Students<span class="sr-only">(current)</span></a>
             </li>
           </ul>
 
@@ -94,40 +94,8 @@
         </nav>
 
         <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
-          <h1>Dashboard</h1>
+          <h1 id="pageheader">All Students</h1>
 
-          <section class="row text-center placeholders">
-            <div class="col-6 col-sm-4 placeholder">
-              <div id="piechart" style="height: 400px;" class="img-fluid rounded-circle"></div>
-              <h4>% Checked In</h4>
-              <div class="text-muted">All Students</div>
-            </div>
-          </section>
-
-          <!-- <section class="row text-center placeholders">
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <div class="text-muted">Something else</div>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-6 col-sm-3 placeholder">
-              <img src="data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </section> -->
-
-          <h2>Section title</h2>
           <p><a onclick="refreshtable()" href="javascript:void(0);">Refresh Table</a>
           <div class="table-responsive">
             <table class="table table-striped" id="tableresults">
@@ -180,7 +148,7 @@
     <!-- Google Charts JavaScript -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="https://www.gstatic.com/charts/loader.js" type="text/javascript"></script>
-    <script src="dashboard.js" type="text/javascript"></script>
+    <script src="allstudents.js" type="text/javascript"></script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

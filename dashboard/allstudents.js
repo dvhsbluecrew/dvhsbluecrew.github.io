@@ -1,5 +1,4 @@
 //Initial Token Check
-google.charts.load('current', {'packages':['corechart']});
 var token = getParameterByName('token');
 
 var urlstring = "https://script.google.com/macros/s/AKfycbz1rWpe0rP-Dmr9FQUI3OPTsoBbICmAyjAWR40HEW7TplU-nSSt/exec?token=" + token + "&content=1";
@@ -37,7 +36,6 @@ function gettabledata(token) {
 
     if(response.error == 0) {
       addtotable(response);
-      drawChart(response.checkedin, response.notcheckedin);
     }
     else {
       notloggedin();
@@ -48,6 +46,8 @@ function gettabledata(token) {
 //Populate Table
 function addtotable(results) {
   document.getElementById("tableresults").deleteRow(1);
+  var pageheader = document.getElementById('pageheader');
+  pageheader.innerHTML = "All Students (" + results.students + ")";
 
   for (var i = results.students - 1; i >= 0; i--) {
     var $node = null;
@@ -74,25 +74,6 @@ function addtotable(results) {
     }
     $node.prependTo("#tablebody");
   }
-}
-
-//Google Charts
-function drawChart(checkedin, notcheckedin) {
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Group');
-  data.addColumn('number', 'Number');
-  data.addRows([
-    ['Checked In', checkedin],
-    ['Not Checked In', notcheckedin]
-  ]);
-
-  var options = {
-    slices: [{color: 'green'}, {color: 'red'}],
-    legend: 'none'
-  };
-
-  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
 }
 
 //Add Token To Links
