@@ -60,6 +60,13 @@ $(function() { //shorthand document.ready function
 });
 
 function fcsignin() {
+	var modalTitle = document.getElementById('modalTitle');
+	var modalBody = document.getElementById('valid');
+
+	$("#myModal").modal();
+	modalTitle.innerHTML = 'Please Wait...';
+	modalBody.innerHTML = 'Signing you in...';
+
 	var username = document.getElementById('username').value;
 	var password = document.getElementById('password').value;
 
@@ -73,9 +80,6 @@ function fcsignin() {
 	}
 
 	$.ajax(settings).done(function (response) {
-	  var modalTitle = document.getElementById('modalTitle');
-	  var modalBody = document.getElementById('valid');
-	  
 	  if(response.error == 1) {
 	  	$("#myModal").modal();
 
