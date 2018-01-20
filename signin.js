@@ -7,6 +7,13 @@ $(function() { //shorthand document.ready function
 });
 
 function tokensignin() {
+	var modalTitle = document.getElementById('modalTitle');
+	var modalBody = document.getElementById('valid');
+
+	$("#myModal").modal();
+	modalTitle.innerHTML = 'Please Wait...';
+	modalBody.innerHTML = 'Signing you in...';
+
 	var accesstoken = document.getElementById('accesstoken').value;
 
 	var urlstring = "https://script.google.com/macros/s/AKfycbzxPD0XVTHnUWMctHFjPiEzwnSX2CrFhtOqQux_6mAFT4cmbdsh/exec?&token=" + accesstoken;
@@ -19,9 +26,6 @@ function tokensignin() {
 	}
 
 	$.ajax(settings).done(function (response) {
-	  var modalTitle = document.getElementById('modalTitle');
-	  var modalBody = document.getElementById('valid');
-	  
 	  if(response.error == 1) {
 	  	$("#myModal").modal();
 
